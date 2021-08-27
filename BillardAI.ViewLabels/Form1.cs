@@ -21,6 +21,13 @@ namespace BillardAI.ViewLabels
 
         public Form1()
         {
+
+            byte[] textAsBytes = System.Text.Encoding.UTF8.GetBytes("YQHN7P3XSNJM7W7Z");
+            var data = Convert.ToBase64String(textAsBytes);
+
+            var testAsBytes = Convert.FromBase64String(data);
+            var test = System.Text.Encoding.UTF8.GetString(textAsBytes);
+
             InitializeComponent();
             CreateControl();
             
@@ -113,6 +120,8 @@ namespace BillardAI.ViewLabels
 
         private void LoadLabel()
         {
+           
+
             var results = new List<LabelItem>();
             var file = _labelPaths[_viewImageIndex];
             var datas = File.ReadAllLines(file.FullName);
