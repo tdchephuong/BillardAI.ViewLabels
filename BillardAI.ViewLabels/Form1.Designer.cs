@@ -36,6 +36,8 @@ namespace BillardAI.ViewLabels
             this.pnPickture = new System.Windows.Forms.Panel();
             this.picViewer = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.ckShowLine = new System.Windows.Forms.CheckBox();
             this.lblLabelName = new System.Windows.Forms.Label();
             this.lblImageName = new System.Windows.Forms.Label();
             this.txtHidden = new System.Windows.Forms.TextBox();
@@ -97,6 +99,8 @@ namespace BillardAI.ViewLabels
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panel3.Controls.Add(this.label1);
+            this.panel3.Controls.Add(this.ckShowLine);
             this.panel3.Controls.Add(this.lblLabelName);
             this.panel3.Controls.Add(this.lblImageName);
             this.panel3.Controls.Add(this.txtPath);
@@ -106,6 +110,27 @@ namespace BillardAI.ViewLabels
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(872, 116);
             this.panel3.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(520, 60);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(87, 20);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Show Line : ";
+            // 
+            // ckShowLine
+            // 
+            this.ckShowLine.AutoSize = true;
+            this.ckShowLine.Checked = true;
+            this.ckShowLine.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ckShowLine.Location = new System.Drawing.Point(613, 63);
+            this.ckShowLine.Name = "ckShowLine";
+            this.ckShowLine.Size = new System.Drawing.Size(18, 17);
+            this.ckShowLine.TabIndex = 4;
+            this.ckShowLine.UseVisualStyleBackColor = true;
+            this.ckShowLine.CheckedChanged += new System.EventHandler(this.ckShowLine_CheckedChanged);
             // 
             // lblLabelName
             // 
@@ -211,6 +236,8 @@ namespace BillardAI.ViewLabels
         private System.Windows.Forms.PictureBox picViewer;
         private System.Windows.Forms.Label lblImageName;
         private System.Windows.Forms.Label lblLabelName;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox ckShowLine;
     }
 }
 
