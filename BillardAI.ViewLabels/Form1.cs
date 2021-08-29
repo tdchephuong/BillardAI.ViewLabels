@@ -66,7 +66,12 @@ namespace BillardAI.ViewLabels
             picViewer.Refresh();
 
             if (ckShowLine.Checked)
-                _labelService.DrawLine(img, _labels, ckShowLine.Checked);
+                _labelService.DrawLine(img, _labels);
+
+            if (ckShowMidpoint.Checked)
+            {
+                _labelService.DrawMidpoint(img, _labels);
+            }
             picViewer.Image = img;
         }
 
@@ -124,7 +129,8 @@ namespace BillardAI.ViewLabels
 
         private void ckShowLine_CheckedChanged(object sender, EventArgs e)
         {
-            _labelService.DrawLine(_images[_viewImageIndex], _labels, ckShowLine.Checked);
+            if (ckShowLine.Checked)
+                _labelService.DrawLine(_images[_viewImageIndex], _labels);
         }
 
         private void CreateControls()
@@ -157,5 +163,12 @@ namespace BillardAI.ViewLabels
             datagrd.MultiSelect = false;
         }
 
+        private void ckShowMidpoint_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ckShowMidpoint.Checked)
+            {
+                _labelService.DrawMidpoint(_images[_viewImageIndex], _labels);
+            }
+        }
     }
 }

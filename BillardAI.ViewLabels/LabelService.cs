@@ -9,15 +9,25 @@ namespace BillardAI.ViewLabels
 {
     public class LabelService
     {
-        public void DrawLine(Image image, List<LabelItem> _labels, bool showline)
+        public void DrawLine(Image image, List<LabelItem> _labels)
         {
-            if (showline)
+            foreach (var item in _labels)
             {
-                foreach (var item in _labels)
-                {
-                    using Graphics g = Graphics.FromImage(image);
-                    g.DrawLine(new Pen(Utils.ToColor(item.Class), 2f), item.P1, item.P2);
-                }
+                using Graphics g = Graphics.FromImage(image);
+                g.DrawLine(new Pen(Utils.ToColor(item.Class), 2f), item.P1, item.P2);
+            }
+        }
+
+        public void DrawMidpoint(Image image, List<LabelItem> _labels)
+        {
+            foreach (var item in _labels)
+            {
+                using Graphics g = Graphics.FromImage(image);
+                var radius = 2;
+                g.DrawEllipse(Pens.Blue, item.Midpoint.X - radius, item.Midpoint.Y - radius,
+                      radius + radius, radius + radius);
+                g.FillEllipse(Brushes.Blue, item.Midpoint.X - radius, item.Midpoint.Y - radius,
+                      radius + radius, radius + radius);
             }
         }
 

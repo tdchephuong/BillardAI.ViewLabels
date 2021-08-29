@@ -45,6 +45,8 @@ namespace BillardAI.ViewLabels
             this.panel2 = new System.Windows.Forms.Panel();
             this.datagrd = new System.Windows.Forms.DataGridView();
             this.splitter2 = new System.Windows.Forms.Splitter();
+            this.label2 = new System.Windows.Forms.Label();
+            this.ckShowMidpoint = new System.Windows.Forms.CheckBox();
             this.pnPickture.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picViewer)).BeginInit();
             this.panel3.SuspendLayout();
@@ -99,6 +101,8 @@ namespace BillardAI.ViewLabels
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.ckShowMidpoint);
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.ckShowLine);
             this.panel3.Controls.Add(this.lblLabelName);
@@ -196,6 +200,25 @@ namespace BillardAI.ViewLabels
             this.splitter2.TabStop = false;
             this.splitter2.ClientSizeChanged += new System.EventHandler(this.splitter2_ClientSizeChanged);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(486, 89);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(121, 20);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Show Midpoint : ";
+            // 
+            // ckShowMidpoint
+            // 
+            this.ckShowMidpoint.AutoSize = true;
+            this.ckShowMidpoint.Location = new System.Drawing.Point(613, 92);
+            this.ckShowMidpoint.Name = "ckShowMidpoint";
+            this.ckShowMidpoint.Size = new System.Drawing.Size(18, 17);
+            this.ckShowMidpoint.TabIndex = 6;
+            this.ckShowMidpoint.UseVisualStyleBackColor = true;
+            this.ckShowMidpoint.CheckedChanged += new System.EventHandler(this.ckShowMidpoint_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -238,6 +261,8 @@ namespace BillardAI.ViewLabels
         private System.Windows.Forms.Label lblLabelName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox ckShowLine;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox ckShowMidpoint;
     }
 }
 
