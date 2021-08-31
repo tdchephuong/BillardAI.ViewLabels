@@ -10,5 +10,8 @@ namespace BillardAI.ViewLabels
 
         public Point Midpoint => new Point( (P1.X + P2.X)/2, (P1.Y + P2.Y)/2 );
 
+        public Point Left => new Point(P1.X, (P1.Y + P2.Y) / 2);
+        public Point Right => new Point(P2.X, (P1.Y + P2.Y) / 2);
+
     }
 }

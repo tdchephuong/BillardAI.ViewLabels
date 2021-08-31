@@ -31,6 +31,18 @@ namespace BillardAI.ViewLabels
             }
         }
 
+        public void DrawWidth(Image image, List<LabelItem> _labels, bool showRight)
+        {
+            foreach (var item in _labels)
+            {
+                using Graphics g = Graphics.FromImage(image);
+                if(showRight)
+                    g.DrawLine(new Pen(Utils.ToColor(item.Class), 2f), item.Midpoint, item.Right);
+                else
+                    g.DrawLine(new Pen(Utils.ToColor(item.Class), 2f), item.Midpoint, item.Left);
+            }
+        }
+
         public Bitmap[] LoadImages(string path, ref string imageName)
         {
             var results = new List<Bitmap>();
