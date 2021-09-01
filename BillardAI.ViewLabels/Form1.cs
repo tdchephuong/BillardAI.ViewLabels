@@ -43,12 +43,14 @@ namespace BillardAI.ViewLabels
             if (_images.Length > 0)
                 picViewer.Image = _images.First();
 
-            LoadLabels();
+            LoadLabels(true);
         }
 
-        private void LoadLabels()
+        private void LoadLabels(bool forceLoad = false)
         {
-            _labelPaths = _labelService.GetLabels(txtPath.Text);
+            if(forceLoad)
+                _labelPaths = _labelService.GetLabels(txtPath.Text);
+
             var file = _labelPaths[_viewImageIndex];
             lblLabelName.Text = "Label : " + file.Name;
             var labels = _labelService.LoadLabel(file);
@@ -102,8 +104,11 @@ namespace BillardAI.ViewLabels
                     _viewImageIndex = 0;
             }
 
-            LoadLabels();
-            ViewImage();
+            if (!string.IsNullOrEmpty(txtPath.Text))
+            { 
+                LoadLabels();
+                ViewImage();
+            }
 
             txtHidden.Focus();
 
@@ -138,7 +143,6 @@ namespace BillardAI.ViewLabels
             picViewer.Refresh();
         }
 
-        
         private void ckShowLine_CheckedChanged(object sender, EventArgs e)
         {
             ViewImage();
